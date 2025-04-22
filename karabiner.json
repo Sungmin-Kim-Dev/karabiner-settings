@@ -1,0 +1,1649 @@
+{
+  "profiles": [
+    {
+      "complex_modifications": {
+        "parameters": {"basic.to_if_alone_timeout_milliseconds": 200},
+        "rules": [
+          {
+            "description": "Tab as Hyper when hold, Tab when tapped",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper",
+                      "value": 1
+                    }
+                  },
+                  {"shell_command": "open -g hammerspoon://showHyperAlert"}
+                ],
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "hyper",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "hyper_sub_layer_q",
+                      "value": 0
+                    }
+                  },
+                  {"shell_command": "open -g hammerspoon://closeHyperAlert"}
+                ],
+                "to_if_alone": [{"key_code": "tab"}],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Hyper Key Main Layer - App Runner and Arrow to Window Organizer",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "Hyper W to Toggle Work Macro",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"shell_command": "open -g hammerspoon://toggleWorkMacros"}],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "Up to Window Up",
+                "from": {
+                  "key_code": "up_arrow",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "Down to Window Down",
+                "from": {
+                  "key_code": "down_arrow",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "Left to Window Left",
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "Right to Window Right",
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "C to Chrome",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "1 to Chrome Profile 1",
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "2 to Chrome Profile 2",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "2",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "3 to Chrome Profile 3",
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "3",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "E to CotEditor",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "e",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "F to Finder",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "N to Notion",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "S to Safari",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "s",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "V to Vial",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "v",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "P to Apple Music",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"shell_command": "open -a 'Music.app'"}],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "T to Open Terminal in Current Folder",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "t",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "O to Open VS Code in Current Folder",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "o",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "I to Open VS Code",
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Hyper Key Sub Layer Q - Window Organize",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "Toggle Hyper Sub Layer q",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sub_layer_q",
+                      "value": 1
+                    }
+                  },
+                  {"shell_command": "open -g hammerspoon://showHyperQAlert"}
+                ],
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sub_layer_q",
+                      "value": 0
+                    }
+                  },
+                  {"shell_command": "open -g hammerspoon://closeHyperAlert"}
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "I to Window Up",
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "K to Window Down",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "J to Window Left",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "L to Window Right",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "U to Window Maximize",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["control", "fn"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "O to Next Display",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "backslash",
+                    "modifiers": ["command", "option", "shift", "control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Hyper Key Sub Layer J - Text Edit",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "Toggle On Hyper Sub Layer J",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sub_layer_j",
+                      "value": 1
+                    }
+                  },
+                  {"shell_command": "open -g hammerspoon://showHyperTAlert"}
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "K to Toggle Off Hyper Sub Layer J",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sub_layer_j",
+                      "value": 0
+                    }
+                  },
+                  {"shell_command": "open -g hammerspoon://closeHyperTAlert"}
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_q",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 0
+                  }
+                ],
+                "description": "Command to Toggle On Hyper Sub Layer J",
+                "from": {
+                  "key_code": "left_command",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"key_code": "left_command"}],
+                "to_if_alone": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sub_layer_j",
+                      "value": 1
+                    }
+                  },
+                  {"shell_command": "open -g hammerspoon://showHyperTAlert"}
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "Command to Toggle Off Hyper Sub Layer J",
+                "from": {"key_code": "left_command"},
+                "to_if_alone": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sub_layer_j",
+                      "value": 0
+                    }
+                  },
+                  {"shell_command": "open -g hammerspoon://closeHyperTAlert"}
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "I to Up",
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"key_code": "up_arrow"}],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "K to Down",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"key_code": "down_arrow"}],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "U to Left",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"key_code": "left_arrow"}],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "O to Right",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"key_code": "right_arrow"}],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "N to Word Delete (⌥⌫)",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "M to Word Forward Delete (⌥Del)",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "delete_forward",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "H to Confirm(⌘⏎)",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "return_or_enter",
+                    "modifiers": ["command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "J to Word Backward",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "L to Word Forward",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "C to Copy",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": ["command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "X to Cut",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "x",
+                    "modifiers": ["command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "V to Paste",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "v",
+                    "modifiers": ["command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "Z to Undo",
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "z",
+                    "modifiers": ["command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "R to ⌘I",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": ["command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "E to ⌘⌥N",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": ["command", "option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "F to Shift",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"key_code": "left_shift"}],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "D to Command",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [{"key_code": "left_command"}],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "hyper_sub_layer_j",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "description": "S to ⌘S",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {"optional": ["any"]}
+                },
+                "to": [
+                  {
+                    "key_code": "s",
+                    "modifiers": ["command"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Disable Hyper + . , / to prevent system diagnostic",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {"mandatory": ["command", "option", "shift", "control"]}
+                },
+                "to": [{"key_code": "vk_none"}],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "comma",
+                  "modifiers": {"mandatory": ["command", "option", "shift", "control"]}
+                },
+                "to": [{"key_code": "vk_none"}],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "slash",
+                  "modifiers": {"mandatory": ["command", "option", "shift", "control"]}
+                },
+                "to": [{"key_code": "vk_none"}],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Shift + Space to Option + Space",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {"mandatory": ["shift"]}
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change Command-Delete to Command-Backspace",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "delete_forward",
+                  "modifiers": {
+                    "mandatory": ["command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": ["command"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Right Shift + Left Shift to select words",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": {"mandatory": ["left_shift"]}
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["shift", "option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "left_shift",
+                  "modifiers": {"mandatory": ["right_shift"]}
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["shift", "option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "page_up to paste",
+            "manipulators": [
+              {
+                "from": {"key_code": "page_up"},
+                "to": [
+                  {
+                    "key_code": "v",
+                    "modifiers": "command"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "End to Command Right",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.rdc$",
+                      "^com\\.microsoft\\.rdc\\.mac$",
+                      "^com\\.microsoft\\.rdc\\.macos$",
+                      "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                      "^net\\.sf\\.cord$",
+                      "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                      "^com\\.itap-mobile\\.qmote$",
+                      "^com\\.nulana\\.remotixmac$",
+                      "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                      "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                      "^com\\.teamviewer\\.TeamViewer$",
+                      "^com\\.vmware\\.horizon$",
+                      "^com\\.2X\\.Client\\.Mac$",
+                      "^com\\.vmware\\.fusion$",
+                      "^com\\.vmware\\.horizon$",
+                      "^com\\.vmware\\.view$",
+                      "^com\\.parallels\\.desktop$",
+                      "^com\\.parallels\\.vm$",
+                      "^com\\.parallels\\.desktop\\.console$",
+                      "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                      "^com\\.citrix\\.XenAppViewer$",
+                      "^com\\.vmware\\.proxyApp\\.",
+                      "^com\\.parallels\\.winapp\\.",
+                      "^org\\.macports\\.X11$",
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^co\\.zeit\\.hyperterm$",
+                      "^co\\.zeit\\.hyper$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {"optional": ["shift"]}
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": "command"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Home to Command Left",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.rdc$",
+                      "^com\\.microsoft\\.rdc\\.mac$",
+                      "^com\\.microsoft\\.rdc\\.macos$",
+                      "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                      "^net\\.sf\\.cord$",
+                      "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                      "^com\\.itap-mobile\\.qmote$",
+                      "^com\\.nulana\\.remotixmac$",
+                      "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                      "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                      "^com\\.teamviewer\\.TeamViewer$",
+                      "^com\\.vmware\\.horizon$",
+                      "^com\\.2X\\.Client\\.Mac$",
+                      "^com\\.vmware\\.fusion$",
+                      "^com\\.vmware\\.horizon$",
+                      "^com\\.vmware\\.view$",
+                      "^com\\.parallels\\.desktop$",
+                      "^com\\.parallels\\.vm$",
+                      "^com\\.parallels\\.desktop\\.console$",
+                      "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                      "^com\\.citrix\\.XenAppViewer$",
+                      "^com\\.vmware\\.proxyApp\\.",
+                      "^com\\.parallels\\.winapp\\.",
+                      "^org\\.macports\\.X11$",
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^co\\.zeit\\.hyperterm$",
+                      "^co\\.zeit\\.hyper$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {"optional": ["shift"]}
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": "command"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Mouse button4 to back, Mouse button5 to forward",
+            "manipulators": [
+              {
+                "from": {"pointing_button": "button4"},
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {"pointing_button": "button5"},
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "devices": [
+        {
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 18,
+            "vendor_id": 12994
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": false
+        },
+        {
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 64007,
+            "vendor_id": 13652
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": [
+            {
+              "from": {"key_code": "caps_lock"},
+              "to": [{"key_code": "left_command"}]
+            },
+            {
+              "from": {"key_code": "left_command"},
+              "to": [{"key_code": "left_option"}]
+            },
+            {
+              "from": {"key_code": "left_control"},
+              "to": [{"key_code": "caps_lock"}]
+            },
+            {
+              "from": {"key_code": "left_option"},
+              "to": [{"key_code": "left_control"}]
+            },
+            {
+              "from": {"key_code": "page_down"},
+              "to": [{"key_code": "home"}]
+            },
+            {
+              "from": {"key_code": "right_control"},
+              "to": [{"key_code": "right_command"}]
+            }
+          ]
+        },
+        {
+          "fn_function_keys": [
+            {
+              "from": {"key_code": "f1"},
+              "to": [{"key_code": "f1"}]
+            },
+            {
+              "from": {"key_code": "f2"},
+              "to": [{"key_code": "f2"}]
+            },
+            {
+              "from": {"key_code": "f5"},
+              "to": [{"key_code": "f5"}]
+            }
+          ],
+          "identifiers": {
+            "is_keyboard": true,
+            "product_id": 64009,
+            "vendor_id": 13652
+          },
+          "simple_modifications": [
+            {
+              "from": {"key_code": "caps_lock"},
+              "to": [{"apple_vendor_top_case_key_code": "keyboard_fn"}]
+            },
+            {
+              "from": {"key_code": "left_command"},
+              "to": [{"key_code": "left_control"}]
+            },
+            {
+              "from": {"key_code": "left_control"},
+              "to": [{"key_code": "left_command"}]
+            }
+          ]
+        },
+        {
+          "identifiers": {
+            "is_keyboard": true,
+            "product_id": 17417,
+            "vendor_id": 22861
+          },
+          "ignore": true
+        },
+        {
+          "identifiers": {
+            "is_pointing_device": true,
+            "product_id": 18,
+            "vendor_id": 12994
+          },
+          "ignore": false
+        },
+        {
+          "fn_function_keys": [
+            {
+              "from": {"key_code": "f1"},
+              "to": [{"key_code": "f1"}]
+            },
+            {
+              "from": {"key_code": "f2"},
+              "to": [{"key_code": "f2"}]
+            }
+          ],
+          "identifiers": {
+            "is_keyboard": true,
+            "product_id": 268,
+            "vendor_id": 9610
+          },
+          "simple_modifications": [
+            {
+              "from": {"key_code": "caps_lock"},
+              "to": [{"apple_vendor_top_case_key_code": "keyboard_fn"}]
+            },
+            {
+              "from": {"key_code": "left_command"},
+              "to": [{"key_code": "left_control"}]
+            },
+            {
+              "from": {"key_code": "left_control"},
+              "to": [{"key_code": "left_command"}]
+            }
+          ]
+        },
+        {
+          "identifiers": {"is_keyboard": true},
+          "simple_modifications": [
+            {
+              "from": {"key_code": "caps_lock"},
+              "to": [{"key_code": "left_command"}]
+            }
+          ]
+        }
+      ],
+      "fn_function_keys": [
+        {
+          "from": {"key_code": "f6"},
+          "to": [{"apple_vendor_keyboard_key_code": "launchpad"}]
+        }
+      ],
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": {"keyboard_type_v2": "ansi"}
+    }
+  ]
+}
