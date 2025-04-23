@@ -884,6 +884,7 @@
                 ],
                 "description": "Command to Toggle Off Hyper Sub Layer J",
                 "from": {"key_code": "left_command"},
+                "to": [{"key_code": "left_command"}],
                 "to_if_alone": [
                   {
                     "set_variable": {
