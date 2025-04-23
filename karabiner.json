@@ -1230,7 +1230,7 @@
                     "value": 1
                   }
                 ],
-                "description": "S to ⌘S",
+                "description": "S to ⌘⇧S",
                 "from": {
                   "key_code": "s",
                   "modifiers": {"optional": ["any"]}
@@ -1238,7 +1238,7 @@
                 "to": [
                   {
                     "key_code": "s",
-                    "modifiers": ["command"]
+                    "modifiers": ["command", "shift"]
                   }
                 ],
                 "type": "basic"
