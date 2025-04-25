@@ -739,8 +739,8 @@
                 },
                 "to": [
                   {
-                    "key_code": "f",
-                    "modifiers": ["control", "fn"]
+                    "key_code": "backslash",
+                    "modifiers": ["command", "option", "shift", "control"]
                   }
                 ],
                 "type": "basic"
