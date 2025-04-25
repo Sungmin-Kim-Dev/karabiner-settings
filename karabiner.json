@@ -760,7 +760,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "backslash",
+                    "key_code": "close_bracket",
                     "modifiers": ["command", "option", "shift", "control"]
                   }
                 ],
